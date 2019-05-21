@@ -1,0 +1,495 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "defaultTitle",
+    "description" : "defaultDescription",
+    "version" : "0.1"
+  },
+  "servers" : [ {
+    "url" : "http://localhost:3000"
+  } ],
+  "paths" : {
+    "/categories/:_id" : {
+      "put" : {
+        "description" : "Replaces all values of the category with the values in the request",
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "_id",
+          "schema" : {
+            "type" : "integer"
+          },
+          "required" : true,
+          "description" : "_id integer of category"
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "name" : {
+                    "type" : "string"
+                  },
+                  "description" : {
+                    "type" : "string"
+                  },
+                  "_id" : {
+                    "type" : "integer"
+                  },
+                  "display_name" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "example" : {
+                "name" : "name",
+                "display_name" : "display_name",
+                "description" : "description",
+                "_id" : "_id"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "example" : {
+                  "name" : "name",
+                  "category" : "category",
+                  "display_name" : "displayname",
+                  "description" : "description",
+                  "_id" : "_id"
+                }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:3000"
+        } ]
+      },
+      "delete" : {
+        "description" : "Deletes the category that matches the given _id",
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "_id",
+          "schema" : {
+            "type" : "integer"
+          },
+          "required" : true,
+          "description" : "_id integer of category"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "example" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:3000"
+        } ]
+      },
+      "patch" : {
+        "description" : "Changes the value(s) of the product with the matching values in the request",
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "_id",
+          "schema" : {
+            "type" : "integer"
+          },
+          "required" : true,
+          "description" : "_id integer of category"
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "name" : {
+                    "type" : "string"
+                  },
+                  "description" : {
+                    "type" : "string"
+                  },
+                  "_id" : {
+                    "type" : "integer"
+                  },
+                  "display_name" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "example" : {
+                "name" : "new name"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "example" : {
+                  "name" : "new name",
+                  "display_name" : "display_name",
+                  "description" : "description",
+                  "_id" : "_id"
+                }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:3000"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:3000"
+      } ]
+    },
+    "/products/" : {
+      "get" : {
+        "description" : "Gets all products",
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "example" : [ {
+                  "name" : "name",
+                  "category" : "category",
+                  "display_name" : "displayname",
+                  "description" : "description",
+                  "_id" : "_id"
+                }, {
+                  "name" : "name",
+                  "category" : "category",
+                  "display_name" : "displayname",
+                  "description" : "description",
+                  "_id" : "_id"
+                } ]
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:3000"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:3000"
+      } ],
+      "post" : {
+        "description" : "Adds a new product",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "name" : {
+                    "type" : "string"
+                  },
+                  "description" : {
+                    "type" : "string"
+                  },
+                  "display_name" : {
+                    "type" : "string"
+                  },
+                  "category" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "example" : {
+                "name" : "name",
+                "description" : "description",
+                "display_name" : "display_name",
+                "category" : "category"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "success",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "example" : {
+                  "name" : "name",
+                  "description" : "description",
+                  "display_name" : "display_name",
+                  "category" : "category",
+                  "_id" : "_id"
+                }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:3000"
+        } ]
+      }
+    },
+    "/categories/" : {
+      "get" : {
+        "description" : "Gets all categories",
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "example" : [ {
+                  "name" : "name",
+                  "display_name" : "display_name",
+                  "description" : "description",
+                  "_id" : "_id"
+                }, {
+                  "name" : "name",
+                  "description" : "description",
+                  "display_name" : "display_name",
+                  "_id" : "_id"
+                } ]
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:3000"
+        } ]
+      },
+      "post" : {
+        "description" : "Adds a new category",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "name" : {
+                    "type" : "string"
+                  },
+                  "description" : {
+                    "type" : "string"
+                  },
+                  "display_name" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "example" : {
+                "name" : "name",
+                "description" : "description",
+                "display_name" : "display_name"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "success",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "example" : [ {
+                  "name" : "name",
+                  "description" : "description",
+                  "display_name" : "display_name",
+                  "_id" : "_id"
+                } ]
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:3000"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:3000"
+      } ]
+    },
+    "/products/:_id" : {
+      "put" : {
+        "description" : "Replaces all values of the product with the values in the request",
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "_id",
+          "schema" : {
+            "type" : "integer"
+          },
+          "required" : true,
+          "description" : "_id integer of product"
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "name" : {
+                    "type" : "string"
+                  },
+                  "description" : {
+                    "type" : "string"
+                  },
+                  "_id" : {
+                    "type" : "integer"
+                  },
+                  "category" : {
+                    "type" : "string"
+                  },
+                  "display_name" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "example" : {
+                "name" : "name",
+                "description" : "description",
+                "_id" : "_id",
+                "category" : "category",
+                "display_name" : "display_name"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "example" : {
+                  "name" : "name",
+                  "description" : "description",
+                  "_id" : "_id",
+                  "category" : "category",
+                  "display_name" : "display_name"
+                }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:3000"
+        } ]
+      },
+      "delete" : {
+        "description" : "Deletes the product that matches the given _id",
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "_id",
+          "schema" : {
+            "type" : "integer"
+          },
+          "required" : true,
+          "description" : "_id integer of product"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "example" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:3000"
+        } ]
+      },
+      "patch" : {
+        "description" : "Changes the value(s) of the product with the matching values in the request",
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "_id",
+          "schema" : {
+            "type" : "integer"
+          },
+          "required" : true,
+          "description" : "_id integer of product"
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "name" : {
+                    "type" : "string"
+                  },
+                  "description" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "example" : {
+                "name" : "new name"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "example" : {
+                  "name" : "new name",
+                  "category" : "category",
+                  "display_name" : "display_name",
+                  "description" : "description",
+                  "_id" : "_id"
+                }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:3000"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:3000"
+      } ]
+    }
+  }
+}
